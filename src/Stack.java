@@ -54,6 +54,7 @@ public class Stack {
         }
         JOptionPane.showMessageDialog(null, list);
         list = "";
+
     }
 
 }

@@ -22,26 +22,54 @@ public class Main {
 
                 switch (option) {
                     case 1:
-
+                        node = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese un numero para el nodo"));
+                        stack.insertNode(node);
                         break;
                     case 2:
+                        if (!stack.isStackEmpty()) {
+                            JOptionPane.showMessageDialog(null, "Se ha elmiminado un valor" +
+                                    stack.deleteNode());
+                        } else {
+                            JOptionPane.showMessageDialog(null, "La pila esta vacia");
+                        }
                         break;
                     case 3:
+                        if (stack.isStackEmpty()) {
+                            JOptionPane.showMessageDialog(null, "La pila esta vacia");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "La pila no esta vacia");
+                        }
                         break;
                     case 4:
+                        if (!stack.isStackEmpty()) {
+                            JOptionPane.showMessageDialog(null, stack.showLastValueEntered());
+                        } else {
+                            JOptionPane.showMessageDialog(null, "La pila esta vacia");
+                        }
                         break;
                     case 5:
+                        JOptionPane.showMessageDialog(null, "La pila contiene " + stack.stackSize() + " nodos");
                         break;
                     case 6:
+                        if (!stack.isStackEmpty()) {
+                            stack.clearStack();
+                            JOptionPane.showMessageDialog(null, "Se ha vaciado la pila");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "La pila esta vacia");
+                        }
                         break;
                     case 7:
+                        stack.showAllItems();
                         break;
                     case 8:
+                        option = 8;
                         break;
-                    default: JOptionPane.showMessageDialog(null, "Porfavor ingrese una opcion correcta");
+                    default:
+                        JOptionPane.showMessageDialog(null, "Porfavor ingrese una opcion correcta");
+                        break;
                 }
 
-            }catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
 
             }
         } while (option != 8);
